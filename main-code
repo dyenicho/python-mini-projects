@@ -1,0 +1,38 @@
+# weird simulation of signing up/in at some website. here it is.
+# Will add some comments soon.
+# Will make notebook system soon.
+def dataHandler():
+    global username
+    global password 
+    username = input('Enter nickname: ')
+    password = input('Enter password: ')
+    return username, password
+print('Aw, new dude here! Time to sign up.')    
+dataHandler()    
+database = {}
+database.update({username: password})
+tries = 4
+def existingDataHandler():
+    global u
+    global p
+    u = input('Enter nickname: ')
+    p = input('Enter password: ')
+while True: 
+  exitAsker = input('u are here now! wanna log out?(Y/N)')
+  if exitAsker == 'Y':
+    if input('You aren\'t logged in the system. Sign up or sign in?') == 'sign up':
+      dataHandler()
+      database.update({username: password})
+    else:
+      existingDataHandler()
+      while tries != 0:
+        if u not in database and p not in database:
+          tries -= 1
+          print('Invalid data, please, try again.', tries, 'tries remain')
+          if tries == 0:
+            print('You\'re blocked')
+        else:
+          print(exitAsker)  
+  else:
+    print('there are nothing btw. Start again.')
+    break
