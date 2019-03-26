@@ -22,17 +22,6 @@ def noteMaker():
         note.write('\n------------------------------')
 
 
-def noteHandler():
-    print('Hello, %s! choose option:\n1 view notes list\n2 make a note' % username)
-    choice = input()
-    if choice == '2':
-        noteMaker()
-    elif choice == '1':
-        dir_list = os.listdir(notesLocation + username)
-        for i in dir_list:
-            print(i)
-
-
 def signUp_menu():
     print('[1] Sign up')
     print('[2] Sign in')
@@ -57,7 +46,7 @@ def menu():
             break
 
 notesLocation = os.path.expanduser('~') + '\Desktop\\my python notebook\\'
-#os.makedirs(notesLocation)
+os.makedirs(notesLocation)
 
 database = {}
 username = None
